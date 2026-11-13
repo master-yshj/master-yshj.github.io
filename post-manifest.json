@@ -18,14 +18,6 @@
       "comments_enabled": true
     },
     {
-      "post_id": "e4c6d7a8-8547-4fbb-a066-367c15b32201",
-      "author_id": "master",
-      "title": "[示例] 给静态博客接一个小后台",
-      "path": "2026/11/11/example-project-blog/",
-      "section": "projects",
-      "comments_enabled": true
-    },
-    {
       "post_id": "4166e8cb-a9f0-4312-948d-49cbb0f1a724",
       "author_id": "orin",
       "title": "[示例] Orin 的笔记整理台",
