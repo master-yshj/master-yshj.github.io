@@ -1,5 +1,6 @@
 (() => {
   const root=document.getElementById('orin-pages');if(!root)return;
+  root.querySelectorAll('.friend-avatar').forEach(img=>{const fallback=()=>img.remove();img.addEventListener('error',fallback);if(img.complete&&!img.naturalWidth)fallback()});
   const menu=root.querySelector('.menu-toggle'),nav=root.querySelector('#navigation');
   const setMenu=open=>{menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open);menu.lastElementChild.textContent=open?'−':'＋'};
   menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));

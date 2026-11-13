@@ -12,3 +12,9 @@
 @media(hover:hover) and (pointer:fine){.author-filters button:hover,.page-pagination a:hover{border-color:#829fbe;background:#2a405a}}
 @media(min-width:601px) and (max-width:900px){.project-list{gap:24px}.project-list .entry{grid-template-columns:minmax(0,1fr) 44px;padding-inline:20px}}
 @media(max-width:600px){.project-list .entry{grid-template-columns:minmax(0,1fr) 44px}.entry-read{margin-left:0}.friend{max-width:440px;width:100%}.friend-list{justify-items:start}}
+
+#orin-pages .friend-mark{position:relative;width:56px;height:56px;overflow:hidden;flex-shrink:0;border-radius:8px}#orin-pages .friend-avatar{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#29415a}
+
+#orin-pages .friend-mark>span{font-size:18px;white-space:nowrap;overflow-wrap:normal}#orin-pages .friend-avatar{display:block;z-index:1}
+
+#orin-pages .friend-mark{padding:0;display:grid;place-items:center}
