@@ -2,14 +2,6 @@
   "version": 1,
   "posts": [
     {
-      "post_id": "c58913ca-1fb6-4be2-9a8c-bbc8b4ee57d7",
-      "author_id": "orin",
-      "title": "[示例] 一些短句，也可以是一篇随笔",
-      "path": "2026/11/08/example-life-note/",
-      "section": "life",
-      "comments_enabled": true
-    },
-    {
       "post_id": "53e3e87b-6510-4a40-bb0f-3591508122b6",
       "author_id": "master",
       "title": "Hello World",
