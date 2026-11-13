@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+
+/* 原有页面标题字体。 */
+#site-title {
+  font-family: "Fleur De Leah", cursive !important;
+  font-size: 5rem !important;
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 导航标题专用颜色，取色脚本会更新色相和饱和度。 */
+#nav {
+  --brand-h: 218;
+  --brand-s: 55%;
+
+  --brand-ink: hsl(var(--brand-h) var(--brand-s) 32%);
+  --brand-hover: hsl(var(--brand-h) var(--brand-s) 40%);
+  --brand-glow: hsl(var(--brand-h) var(--brand-s) 55% / 0.18);
+  --brand-shadow: none;
+}
+
+/* 深色导航栏。 */
+[data-theme="dark"] #nav {
+  --brand-ink: hsl(var(--brand-h) var(--brand-s) 82%);
+  --brand-hover: hsl(var(--brand-h) var(--brand-s) 92%);
+}
+
+/* 导航覆盖在封面图片上时，使用浅色文字。 */
+#page-header:not(.not-top-img):not(.nav-fixed) #nav {
+  --brand-ink: hsl(var(--brand-h) 35% 94%);
+  --brand-hover: #ffffff;
+  --brand-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* 左上角博客名称。 */
+#nav .nav-site-title > .site-name {
+  display: inline-block;
+  padding-left: 0 !important;
+
+  font-family: "Fleur De Leah", cursive !important;
+  font-size: clamp(1.75rem, 2.4vw, 2.1rem) !important;
+  font-weight: 400 !important;
+
+  color: var(--brand-ink) !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: var(--brand-shadow) !important;
+
+  transform-origin: left center;
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* 悬停与键盘聚焦效果。 */
+#nav .nav-site-title:hover > .site-name,
+#nav .nav-site-title:focus-visible > .site-name {
+  color: var(--brand-hover) !important;
+  text-shadow: 0 2px 10px var(--brand-glow) !important;
+  transform: translateY(-1px);
+}
+
+#nav .nav-site-title:focus-visible {
+  outline: 2px solid var(--brand-ink);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+/* 尊重系统减少动画的设置。 */
+@media (prefers-reduced-motion: reduce) {
+  #nav .nav-site-title > .site-name {
+    transition: none !important;
+    transform: none !important;
+  }
+}

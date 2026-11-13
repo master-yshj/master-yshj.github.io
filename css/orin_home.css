@@ -1,0 +1,314 @@
+@font-face{font-family:OrinSignatureV2;src:url('../fonts/fleur-de-leah.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+#orin-home{--night:#101b2e;--paper:#edf2f8;--ink:#203249;--muted:#627186;--line:#b9c9da;--accent:#4773a4;--white:#edf4ff;--ease:cubic-bezier(.22,1,.36,1);color-scheme:light;scrollbar-color:#718aa6 var(--night)}
+#orin-home *{box-sizing:border-box}
+html:has(#orin-home){scroll-behavior:smooth;scrollbar-width:thin}
+#orin-home{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.75 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;-webkit-font-smoothing:antialiased}
+#orin-home a{color:inherit;text-decoration:none}
+#orin-home button{font:inherit;color:inherit;cursor:pointer}
+#orin-home button,#orin-home a{-webkit-tap-highlight-color:transparent}
+#orin-home button{border:0}
+#orin-home h1,#orin-home h2,#orin-home h3,#orin-home p{margin:0}
+#orin-home h1,#orin-home h2,#orin-home h3{font-weight:500}
+#orin-home button:focus-visible,#orin-home a:focus-visible,#orin-home [tabindex='-1']:focus-visible{outline:2px solid #729cd0;outline-offset:6px}
+#orin-home ::selection{background:#a9c8ee;color:#14223a}
+#orin-home [hidden]{display:none!important}
+#orin-home .wrap{width:calc(100% - clamp(48px,4.5vw,112px) * 2);max-width:2160px;margin-inline:auto}
+#orin-home .arrow{display:inline-block;transition:transform 180ms var(--ease);font:400 25px/1 sans-serif}
+#orin-home .skip{position:fixed;left:20px;top:10px;z-index:20;padding:12px 20px;background:var(--paper);transform:translateY(-180%)}
+#orin-home .skip:focus{transform:translateY(0)}
+#orin-home #dust{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+#orin-home .site-header{height:88px;background:var(--night);color:#dbe5f4;position:relative;z-index:8}
+#orin-home .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d5e5ff20}
+#orin-home .brand{display:inline-flex;align-items:center;gap:15px;min-height:44px;font-size:16px;font-weight:500;letter-spacing:.025em}
+#orin-home .brand-mark{font:italic 29px/1 Georgia,serif;position:relative;letter-spacing:-.12em;padding-right:7px}
+#orin-home .brand-mark span{color:#9dbce7;font-size:30px}
+#orin-home .site-header nav{display:flex;align-items:center;gap:12px}
+#orin-home .site-header nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:6px 10px;border-radius:4px;font-size:15px;color:#bac9de;transition:color 180ms}
+#orin-home .site-header nav a::after{content:'';position:absolute;inset:auto 10px 2px;height:1px;background:#c0d8fa;transform:scaleX(0);transform-origin:left;transition:transform 180ms var(--ease)}
+#orin-home .site-header nav a[aria-current='page']{color:#f3f7ff}
+#orin-home .site-header nav a[aria-current='page']::after{transform:scaleX(1)}
+#orin-home .menu-toggle{display:none}
+#orin-home .hero{position:relative;overflow:hidden;background:var(--night);color:var(--white)}
+#orin-home .hero-stage{position:relative;min-height:640px;height:clamp(640px,calc(100svh - 88px),860px);display:flex;align-items:center}
+#orin-home .art-exit{position:absolute;inset:0 0 0 auto;width:min(76%,1440px);pointer-events:none;will-change:opacity}
+#orin-home .art-entry{width:100%;height:100%;position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,#000 26%,#000 87%,transparent 100%)}
+#orin-home .hero-art{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.87}
+#orin-home .art-tone{position:absolute;inset:0;background:linear-gradient(90deg,#101b2ecc,transparent 46%),linear-gradient(0deg,var(--night) 0%,#101b2e40 18%,transparent 52%,#101b2e30 100%)}
+#orin-home .light-haze{position:absolute;width:60%;height:70%;right:1%;top:-5%;border-radius:50%;background:radial-gradient(ellipse,#aed8ff22,transparent 65%);animation:orin-light-breathe 15s ease-in-out infinite alternate;mix-blend-mode:screen;pointer-events:none}
+#orin-home .hero-copy{position:relative;z-index:4;width:440px;padding-bottom:70px}
+#orin-home .greeting{font-size:17px;letter-spacing:.06em;color:#bbcbe1}
+#orin-home .signature{font:400 clamp(130px,11vw,164px)/1.28 OrinSignatureV2,cursive;letter-spacing:-.02em;margin:0 0 16px -5px;white-space:nowrap}
+#orin-home .signature span{color:#aac7ed}
+#orin-home .intro{font-size:20px;line-height:1.95;color:#d5e1f1;letter-spacing:.015em}
+#orin-home .read-link{margin-top:34px;display:inline-flex;align-items:center;justify-content:space-between;gap:64px;min-height:52px;border-bottom:1px solid #a8c3e47a;font-size:16px;padding-bottom:7px;transition:border-color 180ms,color 180ms}
+#orin-home .hero-foot{position:absolute;bottom:36px;left:0;right:0;z-index:4;display:flex;align-items:center;justify-content:space-between;color:#b8c8dd;font-size:13px}
+#orin-home .scroll-note{display:inline-flex;align-items:center;gap:15px}
+#orin-home .scroll-line{width:28px;height:1px;background:#7e9bbd}
+#orin-home .orin-link{display:inline-flex;align-items:center;gap:12px;min-height:44px}
+#orin-home .orin-link .arrow{font-size:18px}
+#orin-home .quiet-dot{width:5px;height:5px;border-radius:50%;background:#a8bdd8}
+#orin-home .status{font-size:12px;color:#a7b9d0;border-left:1px solid #8aa1be55;padding-left:12px}
+#orin-home .reading{position:relative;background:var(--paper)}
+#orin-home .reading::before{content:'';position:absolute;top:-56px;left:0;right:0;height:57px;background:linear-gradient(0deg,var(--paper),#edf2f8c0 25%,#edf2f850 62%,transparent);pointer-events:none}
+#orin-home .reading-inner{position:relative;z-index:4;padding-top:24px;padding-bottom:68px}
+#orin-home .directory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding:26px 0 62px}
+#orin-home .category{position:relative;display:flex;align-items:center;justify-content:space-between;min-height:98px;padding:20px 20px 26px;border-bottom:1px solid var(--line);transition:transform 180ms var(--ease),color 180ms}
+#orin-home .category::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 240ms var(--ease)}
+#orin-home .category h2{font-size:27px;letter-spacing:.02em}
+#orin-home .category .arrow{color:var(--accent)}
+#orin-home .writing{scroll-margin-top:38px;padding-top:12px}
+#orin-home .section-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px}
+#orin-home .section-head h2{font-size:26px}
+#orin-home .text-link{display:inline-flex;align-items:center;gap:24px;min-height:44px;font-size:14px;color:var(--muted)}
+#orin-home .text-link .arrow{font-size:20px}
+#orin-home .post{display:grid;grid-template-columns:180px 1fr 32px;gap:30px;align-items:start;position:relative;padding:38px 24px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);transition:background-color 180ms}
+#orin-home .post-meta{padding-top:9px;font-size:14px;color:var(--muted);display:grid;gap:8px}
+#orin-home .post-meta>span{font-size:12px;letter-spacing:.06em}
+#orin-home .post-copy h3{font-size:clamp(30px,3vw,40px);font-weight:450;line-height:1.3;letter-spacing:-.035em}
+#orin-home .post-copy p{color:var(--muted);font-size:16px;line-height:1.8;margin-top:17px;max-width:580px}
+#orin-home .post-read{display:inline-block;margin-top:27px;font-size:13px;color:var(--accent)}
+#orin-home .post-arrow{margin-top:12px;color:var(--accent)}
+#orin-home .bottom-links{display:flex;gap:40px;padding-top:65px}
+#orin-home .bottom-links>a{display:flex;align-items:center;justify-content:space-between;min-height:64px;width:calc(50% - 20px);padding:12px 16px;border-bottom:1px solid var(--line);font-size:19px}
+#orin-home .bottom-links .arrow{font-size:21px;color:var(--accent)}
+#orin-home .site-footer{position:relative;z-index:4;background:#e4ecf5}
+#orin-home .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:108px;font-size:13px;color:#66778d}
+#orin-home .footer-inner>a{font-size:15px;color:#344c69}
+#orin-home .footer-inner a,#orin-home .footer-inner button{min-height:44px;display:inline-flex;align-items:center;padding:6px 10px;border-radius:4px}
+#orin-home .footer-inner button{background:transparent;gap:14px;padding:6px 10px}
+#orin-home .footer-inner button span{font-size:19px}
+#orin-home .subpage{min-height:calc(100svh - 196px);padding-top:65px;padding-bottom:90px;position:relative;z-index:4}
+#orin-home .back-link{font-size:14px;color:var(--muted);display:inline-flex;align-items:center;min-height:44px;margin-bottom:35px}
+#orin-home .subpage h1{font-size:clamp(34px,5vw,58px);letter-spacing:-.035em;line-height:1.3;margin-bottom:25px}
+#orin-home .subpage .empty{padding-block:35px;border-top:1px solid var(--line);margin-top:35px;color:var(--muted)}
+#orin-home .subpage .article{max-width:760px}
+#orin-home .article p{margin:20px 0}
+#orin-home .article h2{margin-top:42px;font-size:26px}
+#orin-home .article h3{margin-top:30px;font-size:20px}
+#orin-home .article pre{padding:18px 22px;background:#e0e8f3;overflow:auto;border-left:2px solid #9eb7d5}
+#orin-home .article a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+#orin-home .error-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px;min-height:500px}
+#orin-home .error-layout img{width:100%;max-width:460px;height:360px;object-fit:contain}
+#orin-home .error-layout p{color:var(--muted);margin-bottom:24px}
+#orin-home .error-code{font:400 90px/1.2 Georgia,serif;color:#8da5c3;margin-bottom:20px}
+#orin-home .noscript-note{padding:20px;color:var(--muted);font-size:14px}
+#orin-home.js:not(.entry-safe) [data-entry]{opacity:0}
+#orin-home.js:not(.entry-safe) .art-entry{opacity:.12}
+#orin-home.entry-running [data-entry]{animation:orin-copy-in 800ms var(--ease) both;animation-delay:var(--entry-delay,0ms)}
+#orin-home.entry-running .signature{animation-name:orin-signature-in;animation-duration:1100ms}
+#orin-home.entry-running .art-entry{animation:orin-art-in 1350ms cubic-bezier(.2,.75,.2,1) both}
+#orin-home.entry-running .site-header{animation:orin-header-in 650ms var(--ease) both}
+#orin-home.entry-short [data-entry]{animation:orin-copy-in 320ms var(--ease) both;animation-delay:0ms}
+#orin-home.entry-short .art-entry{animation:orin-art-return 400ms var(--ease) both}
+#orin-home .reveal-ready{opacity:0;transform:translateY(10px)}
+#orin-home .reveal-visible{opacity:1;transform:translateY(0);transition:opacity 500ms var(--ease),transform 500ms var(--ease);transition-delay:var(--reveal-delay,0ms)}
+#orin-home.motion-paused .light-haze{animation-play-state:paused}
+@keyframes orin-copy-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orin-signature-in{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orin-art-in{from{opacity:.12;transform:translateX(42px) scale(1.055)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes orin-art-return{from{opacity:.65;transform:scale(1.012)}to{opacity:1;transform:scale(1)}}
+@keyframes orin-header-in{from{opacity:.4;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orin-light-breathe{from{opacity:.4;transform:translate(-2%,2%) scale(.96)}to{opacity:.8;transform:translate(2%,-2%) scale(1.04)}}
+@media(hover:hover) and (pointer:fine){#orin-home .site-header nav a:hover{color:#fff}
+#orin-home .site-header nav a:hover::after{transform:scaleX(1)}
+#orin-home .read-link:hover{border-color:#deebfc;color:white}
+#orin-home .read-link:hover .arrow{transform:translate(3px,3px)}
+#orin-home .category:hover{transform:translateY(-2px);color:#3b6595}
+#orin-home .category:hover::after{transform:scaleX(1)}
+#orin-home .category:hover .arrow,#orin-home .text-link:hover .arrow,#orin-home .bottom-links a:hover .arrow,#orin-home .orin-link:hover .arrow,#orin-home .post:hover .post-arrow{transform:translate(3px,-3px)}
+#orin-home .post:hover{background:#dbe7f34a}
+#orin-home .post:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
+#orin-home .footer-inner button:hover{color:#263d5a}
+}
+#orin-home a:active .arrow,#orin-home button:active{transform:translateY(1px)}
+@media(min-width:1800px){#orin-home .hero-stage{max-width:2160px}
+#orin-home .hero-copy{width:470px}
+#orin-home .intro{font-size:22px}
+#orin-home .signature{font-size:172px}
+#orin-home .hero-art{object-position:50% 45%}
+}
+@media(max-width:1150px){#orin-home .wrap{width:calc(100% - 80px)}
+#orin-home .site-header nav{gap:6px}
+#orin-home .site-header nav a{font-size:14px}
+#orin-home .art-exit{width:77%;right:-25px}
+#orin-home .hero-copy{width:370px}
+#orin-home .signature{font-size:140px}
+#orin-home .intro{font-size:18px}
+#orin-home .directory{gap:28px}
+#orin-home .post{grid-template-columns:145px 1fr 26px}
+}
+@media(max-width:850px){#orin-home .wrap{width:calc(100% - 64px)}
+#orin-home .site-header{height:76px}
+#orin-home .brand{font-size:15px}
+#orin-home .site-header nav{position:absolute;top:76px;left:0;right:0;display:none;padding:20px 32px 28px;background:var(--night);grid-template-columns:repeat(2,1fr);gap:8px 24px;border-bottom:1px solid #7794b54d;box-shadow:0 18px 30px #08152820}
+#orin-home .site-header nav.is-open{display:grid;animation:orin-copy-in 180ms var(--ease)}
+#orin-home .site-header nav a{min-height:48px;font-size:16px}
+#orin-home .site-header nav a::after{right:auto;width:30px}
+#orin-home .menu-toggle{display:inline-flex;gap:15px;align-items:center;min-height:44px;background:transparent;color:#dce8f9;font-size:14px;padding:0 0 0 12px}
+#orin-home .menu-toggle span{font-size:22px}
+#orin-home .hero-stage{height:700px;min-height:0}
+#orin-home .hero-copy{width:330px;padding-bottom:100px}
+#orin-home .signature{font-size:128px}
+#orin-home .intro{font-size:17px}
+#orin-home .art-exit{width:88%;right:-32px}
+#orin-home .art-entry{mask-image:linear-gradient(90deg,transparent,#000 36%,#000 100%)}
+#orin-home .hero-art{object-position:42% 45%}
+#orin-home .art-tone{background:linear-gradient(90deg,#101b2ec9,transparent 70%),linear-gradient(0deg,var(--night),transparent 48%)}
+#orin-home .category h2{font-size:23px}
+#orin-home .directory{gap:24px}
+#orin-home .post{grid-template-columns:115px 1fr 24px;gap:22px}
+#orin-home .footer-inner{min-height:100px}
+#orin-home .subpage{min-height:calc(100svh - 176px)}
+}
+@media(max-width:600px){#orin-home .wrap{width:calc(100% - 48px)}
+#orin-home .site-header{height:68px}
+#orin-home .brand{font-size:14px;gap:12px}
+#orin-home .brand-mark{font-size:26px}
+#orin-home .site-header nav{top:68px;padding-inline:24px}
+#orin-home .hero-stage{height:668px;display:block;padding-top:290px}
+#orin-home .art-exit{top:0;left:-24px;right:-24px;width:auto;height:390px}
+#orin-home .art-entry{mask-image:linear-gradient(0deg,transparent 0%,#000 29%);overflow:hidden}
+#orin-home .hero-art{object-position:50% 40%;opacity:.9}
+#orin-home .art-tone{background:linear-gradient(0deg,var(--night),#101b2e28 54%,#101b2e10)}
+#orin-home .hero-copy{width:100%;padding:0}
+#orin-home .greeting{font-size:14px}
+#orin-home .signature{font-size:103px;line-height:1.12;margin:4px 0 16px -3px}
+#orin-home .intro{font-size:16px;line-height:1.85;max-width:350px}
+#orin-home .desktop-break{display:none}
+#orin-home .read-link{margin-top:22px;min-height:48px;gap:57px;font-size:15px;padding-bottom:4px}
+#orin-home .hero-foot{bottom:26px;font-size:12px}
+#orin-home .scroll-note{gap:10px}
+#orin-home .scroll-line{width:18px}
+#orin-home .orin-link{gap:8px}
+#orin-home .status{padding-left:8px}
+#orin-home .quiet-dot{display:none}
+#orin-home .reading::before{top:-22px;height:23px}
+#orin-home .reading-inner{padding-top:20px;padding-bottom:42px}
+#orin-home .directory{padding:0 0 40px;display:block}
+#orin-home .category{min-height:78px;padding:17px 16px}
+#orin-home .category h2{font-size:24px}
+#orin-home .category .arrow{font-size:24px}
+#orin-home .section-head{margin-bottom:20px;gap:16px}
+#orin-home .section-head h2{font-size:24px}
+#orin-home .text-link{font-size:13px;gap:14px}
+#orin-home .post{grid-template-columns:1fr 24px;gap:20px;padding:25px 16px 30px}
+#orin-home .post-meta{grid-column:1/-1;display:flex;gap:18px;align-items:center;padding:0;font-size:13px}
+#orin-home .post-meta>span{font-size:12px}
+#orin-home .post-copy h3{font-size:34px}
+#orin-home .post-copy p{font-size:15px;margin-top:14px}
+#orin-home .post-read{margin-top:22px}
+#orin-home .post-arrow{font-size:25px;margin-top:9px}
+#orin-home .bottom-links{gap:28px;padding-top:32px}
+#orin-home .bottom-links>a{width:calc(50% - 14px);font-size:17px;min-height:62px}
+#orin-home .footer-inner{flex-wrap:wrap;gap:4px 20px;padding-block:20px;font-size:12px}
+#orin-home .footer-inner>a{flex-basis:calc(100% - 110px);font-size:14px;order:0}
+#orin-home .footer-inner>span{order:2;flex-basis:100%}
+#orin-home .footer-inner>button{order:1;margin-left:auto}
+#orin-home .subpage{padding-top:34px;padding-bottom:55px;min-height:calc(100svh - 188px)}
+#orin-home .error-layout{display:flex;flex-direction:column-reverse;gap:30px;align-items:stretch;min-height:0}
+#orin-home .error-layout img{height:220px}
+#orin-home .error-code{font-size:64px}
+#orin-home .article pre{font-size:13px;padding:14px}
+#orin-home .back-link{margin-bottom:24px}
+}
+@media(max-width:350px){#orin-home .wrap{width:calc(100% - 40px)}
+#orin-home .hero-stage{height:654px;padding-top:272px}
+#orin-home .art-exit{left:-20px;right:-20px;height:370px}
+#orin-home .signature{font-size:93px}
+#orin-home .intro{font-size:15px}
+#orin-home .hero-foot{bottom:25px}
+#orin-home .scroll-note{font-size:11px}
+#orin-home .section-head h2{font-size:22px}
+#orin-home .text-link{gap:9px}
+#orin-home .brand{font-size:13px}
+#orin-home .footer-inner{gap:4px 12px}
+}
+@media(prefers-reduced-motion:reduce){html:has(#orin-home){scroll-behavior:auto}
+#orin-home *,#orin-home *::before,#orin-home *::after{animation:none!important;transition:none!important}
+#orin-home.js [data-entry],#orin-home .reveal-ready{opacity:1!important;transform:none!important}
+#orin-home .art-entry{opacity:1!important;transform:none!important}
+#orin-home .light-haze{opacity:.45}
+#orin-home .category:hover{transform:none}
+}
+@media print{#orin-home #dust,#orin-home .menu-toggle,#orin-home .hero,#orin-home .site-header,#orin-home .bottom-links,#orin-home .site-footer{display:none}
+#orin-home,#orin-home .reading{background:#fff}
+#orin-home .wrap{width:100%}
+#orin-home .reveal-ready{opacity:1;transform:none}
+}
+/* Reading uses the same blue atmosphere as the cover, with a quieter surface. */
+#orin-home{--paper:#18263a;--ink:#e3ebf7;--muted:#a8b8ce;--line:#35495f;--accent:#a8c9ed;color-scheme:dark}
+#orin-home .signature{margin-left:0}
+html:has(#orin-home){scroll-behavior:auto}
+#orin-home .reveal-ready:focus,#orin-home .reveal-ready:focus-within{opacity:1;transform:none;transition:none}
+#orin-home .reading::before{top:-54px;height:55px;background:linear-gradient(0deg,var(--paper),#18263a80 45%,transparent)}
+#orin-home .site-footer{background:#131f30}
+#orin-home .footer-inner{color:#a1b2c9}
+#orin-home .footer-inner>a{color:#d6e3f4}
+#orin-home .post-meta,#orin-home .post-copy p,#orin-home .text-link{color:#a8b8ce}
+#orin-home .post-read{color:#b5d1f1}
+#orin-home .post-copy h3{font-weight:500}
+#orin-home .article pre{background:#111e30;color:#d8e7fa;border-color:#597ca6}
+#orin-home .subpage .empty{border-color:#35495f}
+@media(hover:hover) and (pointer:fine){#orin-home .category:hover{color:#d5e9ff}
+#orin-home .post:hover{background:#24374e80}
+#orin-home .footer-inner button:hover{color:#eff7ff}
+}
+@media(max-width:600px){#orin-home .intro{max-width:310px;text-wrap:pretty}
+#orin-home .desktop-break{display:block}
+#orin-home .reading::before{top:-24px;height:25px}
+}
+@media print{#orin-home{--ink:#203249;--muted:#627186;--accent:#4773a4;--line:#b9c9da}
+#orin-home .post-meta,#orin-home .post-copy p,#orin-home .text-link{color:#526174}
+}
+
+
+
+/* Butterfly compatibility: scoped to this homepage, including PJAX transitions. */
+body:has(#orin-home){margin:0;background:#18263a;color:#e3ebf7}
+body:has(#orin-home)::before{display:none!important}
+body.is-home:has(#orin-home){overflow:auto!important}
+html:has(#orin-home){scrollbar-color:#718aa6 #101b2e;scroll-behavior:auto!important}
+body:has(#orin-home)::-webkit-scrollbar-thumb{background:#718aa6}
+body:has(#orin-home)::-webkit-scrollbar-track{background:#101b2e}
+#body-wrap:has(#orin-home)>#page-header,#body-wrap:has(#orin-home)>#footer,body:has(#orin-home)>#web_bg,body:has(#orin-home) .color-overlay,body:has(#orin-home) #particles-container,body:has(#orin-home) #rightside{display:none!important}
+#body-wrap:has(#orin-home){min-height:100vh;animation:none!important;transform:none!important}
+#content-inner:has(>#orin-home){display:block;max-width:none!important;width:100%;padding:0;margin:0;animation:none!important;transform:none!important}
+#content-inner>#orin-home{width:100%!important;padding:0;border-radius:0;box-shadow:none;transition:none}
+#orin-home{position:relative;isolation:isolate;min-height:100vh;color-scheme:dark;font:400 16px/1.75 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#18263a;color:#e3ebf7;--font-color:#e3ebf7;--text-highlight-color:#e3ebf7}
+#orin-home :is(h1,h2,h3){color:inherit}
+#orin-home a{color:inherit}
+#orin-home .hero-art{margin:0;border-radius:0;max-width:none}
+#orin-home button{border-radius:0}
+#orin-home .post{white-space:normal}
+#orin-home .post+.post{border-top:0}
+#orin-home .post-copy{min-width:0}
+#orin-home .post-copy :is(h2,h3){font-size:clamp(30px,3vw,40px);font-weight:500;line-height:1.3;letter-spacing:-.035em;overflow-wrap:anywhere}
+#orin-home .post-copy p{overflow-wrap:anywhere}
+#orin-home .section-head :is(h1,h2){font-size:26px;font-weight:500;line-height:1.75}
+#orin-home .text-link,#orin-home .post-meta,#orin-home .post-copy p{color:#a8b8ce}
+#orin-home .post-read{color:#b5d1f1}
+#orin-home .home-pagination{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding-top:32px}
+#orin-home .home-pagination :is(a,span){display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 12px}
+#orin-home .home-pagination .current{background:#c4daf5;color:#142339}
+#orin-home:not(:has(.hero)) .reading::before{display:none}
+#orin-home:not(:has(.hero)) .reading{min-height:calc(100svh - 196px)}
+#orin-home .empty{padding:30px 0;color:#a8b8ce}
+#orin-home .article-container img{margin:0}
+@media(max-width:600px){#orin-home .post-copy :is(h2,h3){font-size:34px}#orin-home .section-head :is(h1,h2){font-size:24px}}
+@media(prefers-reduced-motion:reduce){#orin-home .js [data-entry],#orin-home.js [data-entry]{opacity:1!important;transform:none!important}}
+
+
+/* Shared interaction spacing; the homepage keeps its existing composition. */
+#orin-home .site-header nav a[aria-current='page']{background:#203249}
+#orin-home .read-link{padding:10px 16px;border:1px solid #6d8bac;border-radius:4px;background:#182c43}
+#orin-home .orin-link,#orin-home .text-link,#orin-home .back-link{padding-inline:10px;border-radius:4px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+#orin-home .category{background:#1c2d42}
+#orin-home .category .arrow,#orin-home .post-arrow{display:grid;place-items:center;width:44px;height:44px;border:1px solid #48617e;border-radius:4px;font-size:23px;flex-shrink:0}
+#orin-home .post{grid-template-columns:180px minmax(0,1fr) 44px}
+#orin-home .post-read{text-decoration:underline;text-underline-offset:4px}
+#orin-home .post-arrow{margin-top:4px}
+#orin-home .home-pagination a{border:1px solid #48617e;border-radius:4px}
+#orin-home :is(.post,.category,.bottom-links>a,.read-link,.text-link,.orin-link,.back-link,.home-pagination a):focus-visible{background:#263c55;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){#orin-home .site-header nav a:hover,#orin-home .footer-inner :is(a,button):hover,#orin-home .home-pagination a:hover{background:#263c55}#orin-home :is(.category,.bottom-links>a,.read-link,.text-link,.orin-link,.back-link):hover{background:#263c55}#orin-home .post:hover{background:#203249}}
+@media(min-width:601px) and (max-width:1150px){#orin-home .post{grid-template-columns:115px minmax(0,1fr) 44px;gap:24px}#orin-home .category{gap:16px;padding-inline:16px}}
+@media(max-width:600px){#orin-home .post{grid-template-columns:minmax(0,1fr) 44px;gap:16px}#orin-home .post-copy :is(h2,h3){font-size:28px}#orin-home .bottom-links{gap:16px}#orin-home .bottom-links>a{width:calc(50% - 8px);padding-inline:12px;font-size:16px}#orin-home .text-link{gap:10px}}

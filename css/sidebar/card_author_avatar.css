@@ -1,0 +1,51 @@
+.card-widget.card-info .avatar-img {
+  overflow: visible !important; 
+}
+
+/* 基础过渡，让所有特效都平滑一些 */
+.card-widget.card-info .avatar-img img {
+  transition: all 0.3s ease;
+  border-radius: 50% !important;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+
+
+/* 🟢 特效 1：Glow (赛博发光 + 放大) */
+
+.avatar-effect-glow {
+  /* 这里的 !important 是为了防止主题原生样式抢夺控制权 */
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* （保险起见）如果你里面的图片也跟着动，图片也必须加上一样的过渡 */
+.avatar-effect-glow img {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.avatar-effect-glow:hover {
+  /* 除了放大，增加一点点向上的悬浮感 */
+  transform: scale(1.08) translateY(-4px) !important; 
+  
+  box-shadow: 
+    /* 1. 模拟全息底座的悬浮投影（向下偏移 10px） */
+    0 10px 25px color-mix(in srgb, var(--avatar-color-1) 50%, transparent), 
+    /* 2. 全局环境柔和光晕 */
+    0 0 35px color-mix(in srgb, var(--avatar-color-1) 60%, transparent), 
+    /* 3. 极细的纯白玻璃高光内描边（打造通透材质） */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    /* 4. 大范围的内侧环境光浸透 */
+    inset 0 0 25px color-mix(in srgb, var(--avatar-color-1) 40%, transparent) !important;
+}
+/* 🔴 特效 2：Shake (极客故障抖动) */
+.avatar-effect-shake:hover {
+  animation: cyber-shake 0.3s infinite !important;
+}
+
+@keyframes cyber-shake {
+  0% { transform: translate(2px, 1px) rotate(0deg); }
+  25% { transform: translate(-1px, -2px) rotate(-2deg); }
+  50% { transform: translate(-3px, 0px) rotate(2deg); }
+  75% { transform: translate(3px, 2px) rotate(-1deg); }
+  100% { transform: translate(1px, -1px) rotate(0deg); }
+}

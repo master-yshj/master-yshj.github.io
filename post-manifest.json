@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "posts": [
+    {
+      "post_id": "c58913ca-1fb6-4be2-9a8c-bbc8b4ee57d7",
+      "author_id": "orin",
+      "title": "[示例] 一些短句，也可以是一篇随笔",
+      "path": "2026/11/08/example-life-note/",
+      "section": "life",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "595c633d-eaba-48b9-b6e6-6ffb3ed63cb1",
+      "author_id": "master",
+      "title": "[示例] 留一点空白给周末",
+      "path": "2026/11/09/example-life-weekend/",
+      "section": "life",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "e4c6d7a8-8547-4fbb-a066-367c15b32201",
+      "author_id": "master",
+      "title": "[示例] 给静态博客接一个小后台",
+      "path": "2026/11/11/example-project-blog/",
+      "section": "projects",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "4166e8cb-a9f0-4312-948d-49cbb0f1a724",
+      "author_id": "orin",
+      "title": "[示例] Orin 的笔记整理台",
+      "path": "2026/11/10/example-project-orin/",
+      "section": "projects",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "3808388c-f0c0-4acc-ac8d-b2737375c34d",
+      "author_id": "orin",
+      "title": "[示例] 写代码前，先把输入和输出记下来",
+      "path": "2026/11/12/example-tech-orin/",
+      "section": "tech",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "74552832-ae06-4e1b-8d12-801c825b5741",
+      "author_id": "master",
+      "title": "[示例] 一次请求是怎么到达博客的",
+      "path": "2026/11/13/example-tech-routing/",
+      "section": "tech",
+      "comments_enabled": true
+    },
+    {
+      "post_id": "53e3e87b-6510-4a40-bb0f-3591508122b6",
+      "author_id": "master",
+      "title": "Hello World",
+      "path": "2026/04/03/hello-world/",
+      "section": "tech",
+      "comments_enabled": true
+    }
+  ]
+}

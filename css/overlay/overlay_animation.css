@@ -1,0 +1,98 @@
+/*
+ * 首页开场动画
+ * 只有 body.is-home 页面参与动画。
+ * 其他页面隐藏整套 SVG 遮罩。
+ */
+
+/* 默认隐藏，避免 SVG 出现在 404、文章和其他页面。 */
+.color-overlay {
+  display: none;
+}
+
+/* 首页等待取色时的遮罩。 */
+body.is-home:not(.anim-start)::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: #e0e0e0;
+  z-index: 999999;
+}
+
+/* 仅首页等待动画启动时锁定滚动。 */
+body.is-home:not(.anim-start) {
+  overflow: hidden !important;
+}
+
+/*
+ * 首页使用手写 SVG 作为标题，因此隐藏原始标题。
+ * 其他页面的标题正常显示。
+ */
+body.is-home #site-title {
+  display: none !important;
+}
+
+/* 首页动画层。 */
+body.is-home.anim-start .color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /*
+   * 两侧定位自动撑满可用宽度。
+   * 不使用 100vw，避免把纵向滚动条宽度算进去。
+   */
+  width: auto;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--theme-color-1, #e0e0e0);
+  z-index: 99999;
+  pointer-events: none;
+
+  /* 背景退去后，首页继续保留手写标题。 */
+  animation: fadeOutOverlay 0.8s ease 2.5s forwards;
+}
+
+/* 首页 SVG 标题。 */
+body.is-home.anim-start .signature-svg-writing {
+  width: 60vw;
+  max-width: 800px;
+  margin-left: 0;
+
+  animation:
+    shrinkToCenter 1s cubic-bezier(0.25, 0.8, 0.25, 1)
+    1.5s forwards;
+}
+
+/* 首页书写效果。 */
+body.is-home.anim-start .signature-svg-writing path {
+  stroke: var(--svg-stroke-color, #1a1a1a) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+  stroke-dasharray: 8000;
+  stroke-dashoffset: 8000;
+
+  animation: drawSignature 2s ease-in-out 0.5s forwards;
+}
+
+@keyframes drawSignature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shrinkToCenter {
+  to {
+    transform: scale(0.45) translate(0, -150px);
+  }
+}
+
+@keyframes fadeOutOverlay {
+  to {
+    background-color: transparent;
+  }
+}

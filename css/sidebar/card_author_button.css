@@ -1,0 +1,33 @@
+.card-author-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cyber-author-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  /* 使用我们传过来的颜色作为边框和文字颜色 */
+  color: var(--btn-theme-color);
+  border: 1px solid var(--btn-theme-color);
+  border-radius: 4px;
+  transition: all 0.3s;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.cyber-author-btn i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+/* 悬停时的光效（读取对应的颜色） */
+.cyber-author-btn:hover {
+  background-color: var(--btn-theme-color);
+  color: #fff !important;
+  box-shadow: 0 0 15px var(--btn-theme-color);
+  transform: translateY(-2px);
+}

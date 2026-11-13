@@ -1,0 +1,132 @@
+/* Hexo 首页容器：气泡和文章在同一列，保留原有侧栏布局。 */
+#home-content { min-width: 0; }
+#home-content > #recent-posts { width: 100%; }
+
+/* 两个高度分别控制桌面端和手机端的气泡活动范围。 */
+#portrait-cloud {
+  --cloud-height: 320px;
+  --cloud-mobile-height: 360px;
+  --cloud-surface: #f9fbff;
+  --cloud-ink: #263750;
+  --cloud-muted: #60728a;
+  --cloud-border: #e1e8f2;
+  --cloud-shadow: rgba(60, 85, 125, 0.08);
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 24px;
+  padding: 18px 14px 12px;
+  border: 1px solid var(--cloud-border);
+  border-radius: 22px;
+  background: var(--cloud-surface);
+  color: var(--cloud-ink);
+}
+
+[data-theme="dark"] #portrait-cloud {
+  --cloud-surface: #192335;
+  --cloud-ink: #e1eaf8;
+  --cloud-muted: #a9b9d0;
+  --cloud-border: #334156;
+  --cloud-shadow: rgba(0, 0, 0, 0.14);
+}
+
+#portrait-cloud * { box-sizing: border-box; }
+
+#portrait-cloud .portrait-cloud__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 8px 4px;
+}
+
+#portrait-cloud .portrait-cloud__title {
+  margin: 0;
+  font: 500 16px/1.5 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  color: var(--cloud-ink);
+}
+
+#portrait-cloud .portrait-cloud__toggle {
+  padding: 6px 12px;
+  border: 1px solid var(--cloud-border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--cloud-muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#portrait-cloud .portrait-cloud__toggle:focus-visible {
+  outline: 2px solid #6b8fc6;
+  outline-offset: 3px;
+}
+
+/* This is the only physics area. It has real height in the page layout. */
+#portrait-cloud .portrait-cloud__field {
+  position: relative;
+  height: var(--cloud-height);
+  overflow: hidden;
+  contain: layout paint;
+  touch-action: pan-y;
+}
+
+#portrait-cloud .portrait-cloud__bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--bubble-color) 42%, var(--cloud-surface));
+  background: color-mix(in srgb, var(--bubble-color) 13%, var(--cloud-surface));
+  color: color-mix(in srgb, var(--bubble-color) 42%, var(--cloud-ink));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 5px 14px var(--cloud-shadow);
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+#portrait-cloud .portrait-cloud__bubble span { padding: 0 6px; }
+
+/* If too many/long words cannot fit readably, keep every word visible. */
+#portrait-cloud .portrait-cloud__field[data-static] {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  padding: 12px 8px;
+  overflow: auto;
+}
+
+#portrait-cloud .portrait-cloud__field[data-static] .portrait-cloud__bubble {
+  position: relative;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 24px;
+  transform: none !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  will-change: auto;
+}
+
+#portrait-cloud .portrait-cloud__field[data-static] .portrait-cloud__bubble span { padding: 0; }
+#portrait-cloud .portrait-cloud__toggle:disabled { opacity: 0.6; cursor: default; }
+
+@media (max-width: 600px) {
+  #portrait-cloud { padding: 14px 8px 8px; }
+  #portrait-cloud .portrait-cloud__field { height: var(--cloud-mobile-height); }
+}
+
+@media (pointer: coarse) {
+  #portrait-cloud .portrait-cloud__toggle { min-height: 44px; }
+}
